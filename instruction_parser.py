@@ -1,21 +1,21 @@
 def parse_instruction(instruction):
-    plan = {}
     instruction = instruction.lower()
 
-    if "headline" in instruction:
-        plan["browser"] = {"action": "fetch_news", "topic": "AI", "limit": 5}
-        plan["file"] = {"action": "save_text", "filename": "ai_headlines.txt"}
+    if "smartphone" in instruction and "summary" in instruction:
+        return {
+            "type": "summarize_smartphones"
+        }
 
-    elif "review" in instruction and "smartphone" in instruction:
-        plan["browser"] = {"action": "fetch_reviews", "product": "smartphone"}
-        plan["file"] = {"action": "save_summary", "filename": "smartphone_summary.txt"}
+    elif "ai news" in instruction or "ai headlines" in instruction:
+        return {
+            "type": "fetch_ai_news"
+        }
 
-    elif "renewable energy" in instruction and "analyze" in instruction:
-        plan["browser"] = {"action": "fetch_data", "topic": "renewable energy"}
-        plan["terminal"] = {"action": "analyze_data"}
-        plan["file"] = {"action": "save_pdf", "filename": "energy_report.pdf"}
+    elif "save to file" in instruction or "save them" in instruction:
+        # If it's just asking to save, assume recent task
+        return {
+            "type": "save_last_result"
+        }
 
     else:
         raise ValueError("Unsupported instruction. Try a sample test case.")
-
-    return plan
