@@ -4,12 +4,12 @@ from fpdf import FPDF
 # Get the path where main.py is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def save_text(data, filename):
+def save_text(filename, data):
     path = os.path.join(BASE_DIR, filename)
     with open(path, 'w', encoding='utf-8') as f:
-        for line in data:
-            f.write(f"{line}\n")
-    print(f"[Filesystem] Saved text to: {path}")
+        f.write(data)
+    print(f"[Filesystem] File saved: {os.path.abspath(path)}")  # This line confirms where it's saved
+
 
 def save_summary(reviews, filename):
     path = os.path.join(BASE_DIR, filename)
