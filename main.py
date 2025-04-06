@@ -1,9 +1,12 @@
 from instruction_parser import parse_instruction
 from orchestrator import run_task
+import sys
 
 def main():
+
     print("Enter your instruction:")
-    instruction = input("=> ").strip()
+    instruction = sys.stdin.read().strip()
+
 
     try:
         plan = parse_instruction(instruction)
