@@ -67,7 +67,7 @@ echo "Find top 5 AI news headlines and save to file" | python main.py
 ---
 
 ## Output
-- Saved files like `ai_headlines.txt` or `smartphone_summary.txt` will appear in the project folder.
+- Saved files like `ai_headlines.txt` or `smartphone_summary.txt` will appear in the project folder name of the file depends on the type of instructions given.
 
 ---
 
